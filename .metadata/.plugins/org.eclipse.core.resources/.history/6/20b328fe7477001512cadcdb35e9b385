@@ -1,0 +1,16 @@
+package testing;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class squaretest {
+
+	@Test
+	public void test() {
+		Junit_testing test1=new Junit_testing();
+		int output=test1.square(5);
+		assertEqual(output,25);
+	}
+
+}

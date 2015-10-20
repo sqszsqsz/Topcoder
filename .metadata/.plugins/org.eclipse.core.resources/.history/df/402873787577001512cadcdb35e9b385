@@ -1,0 +1,15 @@
+package testing;
+
+public class Junit_testing {
+	public int square(int a){
+		return a*a;
+	}
+	
+	public int countA(String X){
+		int count=0;
+		for (int i=1;i<X.length();i++){
+			if (X.charAt(i)=='a' || X.charAt(i)=='A') count++;
+		}
+		return count;
+	}
+}
