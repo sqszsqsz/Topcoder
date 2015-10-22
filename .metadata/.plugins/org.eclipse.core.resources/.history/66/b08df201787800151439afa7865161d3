@@ -1,0 +1,30 @@
+package goldmine;
+
+import static org.junit.Assert.*;
+
+import java.util.Arrays;
+
+import org.junit.Before;
+import org.junit.Test;
+
+
+public class testmine {
+
+	protected mine solution;
+	
+	@Before
+	public void setUp() throws Exception {
+		solution = new mine();
+	}
+
+	@Test
+	public void test() {
+		String[] test1={ "000, 030, 030, 040, 000, 000, 000",
+		  				 "020, 020, 020, 010, 010, 010, 010" };
+		int[] expected = new int[]{2,2};
+		int[] actual = solution.getAllocation(test1,4);
+		System.out.println(Arrays.toString(actual));
+        assertEquals(expected, actual);
+	}
+
+}

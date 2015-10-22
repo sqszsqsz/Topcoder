@@ -1,0 +1,47 @@
+public class Answer {   
+    public static String answer(int x, int y, int z) { 
+
+        // Your code goes here.
+        String ret;
+        int month_count=0,days_count=0;
+        boolean x_month=false,y_month=false,z_month=false,x_days=false,y_days=false,z_days=false;
+        int month=0,day=0,year=0;
+        
+        if (x>0&&x<=12) {x_month=true;month_count++;month=x;}
+        if (y>0&&y<=12) {y_month=true;month_count++;month=y;}
+        if (z>0&&z<=12) {z_month=true;month_count++;month=z;}
+        if (x>0&&x<=31) {x_days=true;days_count++;day=x;}
+        if (y>0&&y<=31) {y_days=true;days_count++;day=y;}
+        if (z>0&&z<=31) {z_days=true;days_count++;day=z;}
+        
+        if (days_count>=2||month_count>=2) return "Ambiguous";
+        
+        if (!x_month&&!x_days) year=x;
+        else if (!y_month&&!y_days) year=y;
+        else if (!z_month&&!z_days) year=z;
+        
+        String mm,dd,yy;
+        
+        if (month>=10){
+           mm=Integer.toString(month);
+        }
+        else {
+             mm=Integer.toString(0)+Integer.toString(month);
+        }
+        if (day>=10){
+             dd=Integer.toString(day);
+        }
+        else {
+             dd=Integer.toString(0)+Integer.toString(day);
+        }
+        if (year>=10){
+             yy=Integer.toString(year);
+        }
+        else {
+             yy=Integer.toString(0)+Integer.toString(year);
+        }
+        
+        ret=mm+'/'+dd+'/'+yy;
+        return ret;
+
+    } 

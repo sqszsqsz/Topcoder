@@ -1,0 +1,88 @@
+
+public class answer {
+	
+	
+	   
+		public static String answer1(int x, int y, int z) { 
+
+	        // Your code goes here.
+	        String ret;
+	        int month_count=0,days_count=0,bdays_count=0;
+	        boolean x_month=false,y_month=false,z_month=false,x_days=false,y_days=false,z_days=false;
+	        int month=0,day=0,year=0;
+	        
+	        if (x>0&&x<=12) {x_month=true;month_count++;month=x;}
+	        if (y>0&&y<=12) {y_month=true;month_count++;month=y;}
+	        if (z>0&&z<=12) {z_month=true;month_count++;month=z;}
+	        
+	        if (month_count==2) {
+	        	if (x_month==false&&y==z) {day=y;year=x;}
+	        	if (y_month==false&&x==z) {day=x;year=y;}
+	        	if (z_month==false&&y==x) {day=y;year=z;}
+	        }
+	        
+	        if (month==2) {
+		        if (x>12&&x<=28) {x_days=true;days_count++;day=x;year= y_month==true? z:y;}
+		        if (y>12&&y<=28) {y_days=true;days_count++;day=y;year= x_month==true? z:x;}
+		        if (z>12&&z<=28) {z_days=true;days_count++;day=z;year= x_month==true? y:x;}
+		        
+		        if (x>0&&x<=28) bdays_count++;
+		        if (y>0&&y<=28) bdays_count++;
+		        if (z>0&&z<=28) bdays_count++;
+	        }
+	        
+	        if (month==1||month==3||month==5||month==7||month==8||month==10||month==12) {
+		        if (x>12&&x<=31) {x_days=true;days_count++;day=x;year= y_month==true? z:y;}
+		        if (y>12&&y<=31) {y_days=true;days_count++;day=y;year= x_month==true? z:x;}
+		        if (z>12&&z<=31) {z_days=true;days_count++;day=z;year= x_month==true? y:x;}
+		        if (x>0&&x<=31) bdays_count++;
+		        if (y>0&&y<=31) bdays_count++;
+		        if (z>0&&z<=31) bdays_count++;
+	        }
+	        
+	        if (month==4||month==6||month==9||month==11) {
+		        if (x>12&&x<=30) {x_days=true;days_count++;day=x;year= y_month==true? z:y;}
+		        if (y>12&&y<=30) {y_days=true;days_count++;day=y;year= x_month==true? z:x;}
+		        if (z>12&&z<=30) {z_days=true;days_count++;day=z;year= x_month==true? y:x;}
+		        if (x>0&&x<=30) bdays_count++;
+		        if (y>0&&y<=30) bdays_count++;
+		        if (z>0&&z<=30) bdays_count++;
+	        }
+	        
+//	        System.out.println(day);
+	        if ((month_count>=2&&day!=month) || (days_count>=2&&year!=day) || bdays_count>=2) return "Ambiguous";
+	        
+	        
+	        String mm,dd,yy;
+	        
+	        if (month>=10){
+	           mm=Integer.toString(month);
+	        }
+	        else {
+	             mm=Integer.toString(0)+Integer.toString(month);
+	        }
+	        if (day>=10){
+	             dd=Integer.toString(day);
+	        }
+	        else {
+	             dd=Integer.toString(0)+Integer.toString(day);
+	        }
+	        if (year>=10){
+	             yy=Integer.toString(year);
+	        }
+	        else {
+	             yy=Integer.toString(0)+Integer.toString(year);
+	        }
+	        
+	        ret=mm+'/'+dd+'/'+yy;
+	        return ret;
+
+	 } 
+	
+	public static void main(String[] args) {
+		
+		String a = answer1(2,3,31);
+		System.out.println(a);
+	}
+
+}
